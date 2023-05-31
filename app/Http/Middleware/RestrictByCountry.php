@@ -19,7 +19,8 @@ class RestrictByCountry
     {
         $ip = $request->ip();
         $country = GeoIP::getLocation($ip)->getAttribute('country');
-        if ($country !== 'Israel') {
+
+        if ($ip !== '127.0.0.1' && $country !== 'Israel') {
             abort(403, "Access outside of israel denied, you are located in $country. you can change it in Kernel.php or RestrictByCountry.php");
         }
 
