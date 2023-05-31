@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\Country;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CountryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +21,16 @@ Route::get('/', function () {
 })->middleware('guest');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+
+    $userId = Auth::id();
+    $countries = Country::where('user_id', $userId)->get();
+
+    return view('dashboard', compact("countries"));
 })->middleware(['auth'])->name('dashboard');
+
+
+Route::post('/countries', [CountryController::class, 'store'])->name('countries');
+Route::put('/countries/{id}', [CountryController::class, 'update']);
+Route::delete('/countries/{id}', [CountryController::class, 'destroy']);
 
 require __DIR__ . '/auth.php';

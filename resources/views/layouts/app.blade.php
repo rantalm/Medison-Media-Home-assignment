@@ -14,6 +14,9 @@
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <script defer src="{{asset('js/app.js')}}"></script>
+        <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-tabledit@1.0.0/jquery.tabledit.min.js"></script>
+
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
