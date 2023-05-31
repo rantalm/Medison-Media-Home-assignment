@@ -14,27 +14,27 @@
 
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="flex">
-                        <div class="border-gray-400 border flex-1">
-                            <h2 class="bg-gray-200 p-3">Add New Country</h2>
+                        <div class="border-gray-300 border flex-1 rounded-md overflow-hidden">
+                            <h2 class="bg-gray-100 p-3">Add New Country</h2>
                             <form class="form" method="post" action="/countries">
-                                <div class="p-4 border-gray-400 border">
+                                <div class="p-4">
                                 @csrf
                                 <div class="mb-5">
                                     <label for="name" class="text-sm text-gray-500 mb-1 block">Name</label>
-                                    <input type="text" name="name" id="name" class="rounded">
+                                    <input type="text" name="name" id="name" class="rounded block w-full">
                                 </div>
                                 <div>
                                     <label for="iso" class="text-sm text-gray-500 mb-1 block">ISO</label>
-                                    <input type="text" name="iso" id="iso" class="rounded">
+                                    <input type="text" name="iso" id="iso" class="rounded block w-full">
                                 </div>
                             </div>
-                                <div class="bg-gray-200 p-3">
+                                <div class="bg-gray-100 p-3">
                                     <button type="submit" class="bg-black text-white rounded py-1 px-5 text-sm ms-auto block">SAVE</button>
                                 </div>
                             </form>
                         </div>
-                        <div class="border-gray-400 border w-3/4 ms-5">
-                            <h2 class="bg-gray-200 p-3">List of countries</h2>
+                        <div class="border-gray-300 border w-3/4 ms-5 rounded-md overflow-hidden">
+                            <h2 class="bg-gray-100 p-3">List of countries</h2>
                             <div class="p-5">
                                 <div class="w-full table-auto text-start ">
                                     <div class="border-t p-3 flex w-full justify-between align-middle">
@@ -124,7 +124,7 @@
                     }
                 })
                 .then(res => res.json())
-                .then(res => console.log(res))
+                .then(res => form.remove())
                 .catch(err => console.error(err))
             })
         });
