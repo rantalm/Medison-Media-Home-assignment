@@ -29,8 +29,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 
-Route::post('/countries', [CountryController::class, 'store'])->name('countries');
-Route::put('/countries/{id}', [CountryController::class, 'update']);
-Route::delete('/countries/{id}', [CountryController::class, 'destroy']);
+Route::post('/countries', [CountryController::class, 'store'])->middleware(['auth'])->name('countries');
+Route::put('/countries/{id}', [CountryController::class, 'update'])->middleware(['auth']);
+Route::delete('/countries/{id}', [CountryController::class, 'destroy'])->middleware(['auth']);
 
 require __DIR__ . '/auth.php';
