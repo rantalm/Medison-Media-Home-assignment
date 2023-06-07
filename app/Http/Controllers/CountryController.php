@@ -37,6 +37,11 @@ class CountryController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'iso' => 'required',
+        ]);
+
         $user = Auth::user();
         $country = new Country();
         $country->name = $request->input('name');
@@ -78,6 +83,11 @@ class CountryController extends Controller
      */
     public function update(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'iso' => 'required',
+        ]);
+
         $data = $request->all();
         $id = $request->route('id');
         $c = Country::find($id);
